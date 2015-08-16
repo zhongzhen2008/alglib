@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>alglib: D:/worktemp/alg/alglib/alglib/include/alg_graph_bipartite.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">alglib
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">alg_graph_bipartite.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="alg__graph__bipartite_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ALG_GRAPH_BIPARTITE_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ALG_GRAPH_BIPARTITE_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">    6</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a> = 201;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//n1,n2为二分图的顶点集,其中x∈n1,y∈n2</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#aa5d111dfc5a6d5317ca02bed02649f46">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="alg__graph__bipartite_8h.html#acf4b6cea27655a9d2012c09c64d6ca9e">n1</a>, <a class="code" href="alg__graph__bipartite_8h.html#aa5d111dfc5a6d5317ca02bed02649f46">n2</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//link记录n2中的点y在n1中所匹配的x点的编号</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">   12</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="alg__graph__bipartite_8h.html#ac02bb7642f364c1d42ecd7462a356161">map</a>[<a class="code" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a>][<a class="code" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a>], <a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>[<a class="code" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a>], <a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>[<a class="code" href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a>];</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#adfe8554118bddaa9180064df7315b5da">   14</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="alg__graph__bipartite_8h.html#adfe8554118bddaa9180064df7315b5da">ALG_FindBipartite</a>(<span class="keywordtype">int</span> x)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (i = 1; i &lt;= <a class="code" href="alg__graph__bipartite_8h.html#aa5d111dfc5a6d5317ca02bed02649f46">n2</a>; i++)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="alg__graph__bipartite_8h.html#ac02bb7642f364c1d42ecd7462a356161">map</a>[x][i] &amp;&amp; !<a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>[i]) <span class="comment">//x-&gt;i有边,且节点i未被搜索</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>[i] = 1; <span class="comment">//标记节点已被搜索</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="comment">//如果i不属于前一个匹配M或被i匹配到的节点可以寻找到增广路</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>[i] == 0 || <a class="code" href="alg__graph__bipartite_8h.html#adfe8554118bddaa9180064df7315b5da">ALG_FindBipartite</a>(<a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>[i]))</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>[i] = x; <span class="comment">//更新</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">return</span> 1;<span class="comment">//匹配成功</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#a939bab7d097a2e71a30cddcaed264b21">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="alg__graph__bipartite_8h.html#a939bab7d097a2e71a30cddcaed264b21">ALG_InitBipartite</a>()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    memset(<a class="code" href="alg__graph__bipartite_8h.html#ac02bb7642f364c1d42ecd7462a356161">map</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="alg__graph__bipartite_8h.html#ac02bb7642f364c1d42ecd7462a356161">map</a>));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    memset(<a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    memset(<a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a>));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="alg__graph__bipartite_8h.html#a68a359c503f1aec627ac0286f239f9db">   44</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="alg__graph__bipartite_8h.html#a68a359c503f1aec627ac0286f239f9db">ALG_BipartiteMatch</a>()</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> sum = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= <a class="code" href="alg__graph__bipartite_8h.html#acf4b6cea27655a9d2012c09c64d6ca9e">n1</a>; i++)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        memset(<a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a>));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="alg__graph__bipartite_8h.html#adfe8554118bddaa9180064df7315b5da">ALG_FindBipartite</a>(i))</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            sum++;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> sum;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_a939bab7d097a2e71a30cddcaed264b21"><div class="ttname"><a href="alg__graph__bipartite_8h.html#a939bab7d097a2e71a30cddcaed264b21">ALG_InitBipartite</a></div><div class="ttdeci">void ALG_InitBipartite()</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:33</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_a68a359c503f1aec627ac0286f239f9db"><div class="ttname"><a href="alg__graph__bipartite_8h.html#a68a359c503f1aec627ac0286f239f9db">ALG_BipartiteMatch</a></div><div class="ttdeci">int ALG_BipartiteMatch()</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:44</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_adfe8554118bddaa9180064df7315b5da"><div class="ttname"><a href="alg__graph__bipartite_8h.html#adfe8554118bddaa9180064df7315b5da">ALG_FindBipartite</a></div><div class="ttdeci">int ALG_FindBipartite(int x)</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:14</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_a930595ac77172615bbd460277b1afe7d"><div class="ttname"><a href="alg__graph__bipartite_8h.html#a930595ac77172615bbd460277b1afe7d">vis</a></div><div class="ttdeci">int vis[N]</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:12</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_ac02bb7642f364c1d42ecd7462a356161"><div class="ttname"><a href="alg__graph__bipartite_8h.html#ac02bb7642f364c1d42ecd7462a356161">map</a></div><div class="ttdeci">int map[N][N]</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:12</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_aa5d111dfc5a6d5317ca02bed02649f46"><div class="ttname"><a href="alg__graph__bipartite_8h.html#aa5d111dfc5a6d5317ca02bed02649f46">n2</a></div><div class="ttdeci">int n2</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:9</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_acf4b6cea27655a9d2012c09c64d6ca9e"><div class="ttname"><a href="alg__graph__bipartite_8h.html#acf4b6cea27655a9d2012c09c64d6ca9e">n1</a></div><div class="ttdeci">int n1</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:9</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_ab2b6b0c222cd1ce70d6a831f57241e59"><div class="ttname"><a href="alg__graph__bipartite_8h.html#ab2b6b0c222cd1ce70d6a831f57241e59">N</a></div><div class="ttdeci">const int N</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:6</div></div>
+<div class="ttc" id="alg__graph__bipartite_8h_html_a4d402fde904ecbc116f1e46ab6d6030d"><div class="ttname"><a href="alg__graph__bipartite_8h.html#a4d402fde904ecbc116f1e46ab6d6030d">link</a></div><div class="ttdeci">int link[N]</div><div class="ttdef"><b>Definition:</b> alg_graph_bipartite.h:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2015年 八月 16日 星期日 17:00:35 , 为 alglib使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

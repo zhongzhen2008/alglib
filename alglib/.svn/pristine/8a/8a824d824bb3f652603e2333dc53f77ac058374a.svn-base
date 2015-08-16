@@ -1,0 +1,27 @@
+#include "../include/alg_sequence.h"
+
+#include <gtest/gtest.h>
+
+TEST(SequenceTest, LCSString_01)
+{
+    string x = "abcbdab";
+    string y = "bdcaba";
+    string ret;
+    EXPECT_EQ(4, ALG_LCSString(x, y, ret));
+    EXPECT_STREQ("bcba", ret.c_str());
+}
+
+TEST(SequenceTest, LCSVector_01)
+{
+    char arr1[7] = {'a', 'b', 'c', 'b', 'd', 'a', 'b'};
+    char arr2[6] = {'b', 'd', 'c', 'a', 'b', 'a'};
+    vector <char> vec1(arr1, arr1 + 7);
+    vector <char> vec2(arr2, arr2 + 6);
+    vector <char> vecRet;
+
+    EXPECT_EQ(4, ALG_LCSVector(vec1, vec2, vecRet));
+    EXPECT_EQ('b', vecRet[0]);
+    EXPECT_EQ('c', vecRet[1]);
+    EXPECT_EQ('b', vecRet[2]);
+    EXPECT_EQ('a', vecRet[3]);
+}

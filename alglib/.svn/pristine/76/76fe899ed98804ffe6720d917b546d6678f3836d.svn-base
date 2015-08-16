@@ -1,0 +1,23 @@
+#include "../include/alg_math.h"
+
+#include <gtest/gtest.h>
+
+TEST(MathTest, PermutationCalc_01)
+{
+    EXPECT_EQ(12, ALG_PermutationCalc(4, 2));
+}
+
+TEST(MathTest, CombinationCalc_01)
+{
+    EXPECT_EQ(6, ALG_CombinationCalc(4, 2));
+}
+
+TEST(MathTest, Permutation_01)
+{
+    EXPECT_EQ(24, ALG_Permutation(4));
+}
+
+TEST(MathTest, Combination_01)
+{
+    EXPECT_EQ(6, ALG_Combination(4, 2));
+}

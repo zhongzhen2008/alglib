@@ -1,0 +1,13 @@
+#ifndef ALG_KNAPSACK_H_
+#define ALG_KNAPSACK_H_
+
+/** 0-1背包问题：ALG_Knapsack_01   
+*   
+*     @param size 物品数量   
+*     @param weight 物品重量，[1..size] 数组从1开始
+*     @param value 物品价值，[1..size] 数组从1开始
+*     @param limitWeight 背包最大重量  
+*     @return    背包可纳入的最大价值和  */
+int ALG_Knapsack_01(int size, int weight[], int value[], int limitWeight);
+
+#endif

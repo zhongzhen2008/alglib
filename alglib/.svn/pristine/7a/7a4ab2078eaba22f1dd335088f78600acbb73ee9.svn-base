@@ -1,0 +1,196 @@
+#ifndef ALG_MATH_H_
+#define ALG_MATH_H_
+
+#include <math.h>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+/**
+*   求排列数 P(n,m) = n!/(n-m)!
+*/
+unsigned int ALG_PermutationCalc(unsigned int n, unsigned int m)
+{
+    unsigned int i, Ans;
+    Ans = 1;
+    for (i = 1; i <= m; i++)
+    {
+        Ans = Ans * n;
+        n--;
+    }
+    return Ans;
+}
+
+/**
+*   求组合数 C(n,m) = n!/m!/(n-m)!
+*/
+unsigned int ALG_CombinationCalc(unsigned int n, unsigned int m)
+{
+    unsigned int i, Ans;
+    Ans = 1;
+    for (i = 1; i <= m; i++)
+    {
+        Ans = Ans * n;
+        n--;
+    }
+    for (i = 2; i <= m; i++)
+    {
+        Ans = Ans / i;
+    }
+    return Ans;
+}
+
+/**
+*   输入n，输出[1..n] 的全排列，以及输出总数
+*/
+unsigned int ALG_Permutation(unsigned int n)
+{
+    vector <unsigned int> vec1;
+    unsigned int result = 0;
+    for (unsigned int i = 1; i <= n; i++)
+    {
+        vec1.push_back(i);
+    }
+
+    bool hasNext = true;
+    while (hasNext)
+    {
+        result++;
+        for (unsigned int i = 0; i < n; i++)
+        {
+            cout << vec1[i] << " ";
+        }
+        cout << endl;
+
+        hasNext = next_permutation(vec1.begin(), vec1.end());
+    }
+
+    return result;
+}
+
+/**
+*   从[1..n] 个数中选m 个的组合，以及输出总数
+*/
+unsigned int ALG_Combination(unsigned int n, unsigned int m)
+{
+    unsigned int result = 0;
+
+    unsigned int *a = new unsigned int[n + 1];
+    unsigned int i, j;
+    a[0] = 1;
+    for (i = 1; i <= m; i++)
+    {
+        a[i] = i;
+    }
+    while (a[0] == 1)
+    {
+        result++;
+        for (i = 1; i <= m; i++)
+        {
+            cout << a[i] << ' ';    //输出当前序列
+        }
+        cout << '\n';
+
+        j = m;
+        while (a[j] == n - m + j && j > 0)
+        {
+            j--;
+        }
+        a[j]++;
+        for (i = j + 1; i <= n; i++)
+        {
+            a[i] = a[i - 1] + 1;
+        }
+    }
+
+    delete[] a;
+
+    return result;
+}
+
+/** 最大公约数
+*
+*     @param x 第一个数
+*     @param y 第二个数
+*     @return 最大公约数
+*/
+int ALG_Gcd(int x, int y)
+{
+    int t;
+    while (y  >  0)
+    {
+        t = x % y;
+        x = y;
+        y = t;
+    }
+    return  x;
+}
+
+/** 最小公倍数
+*
+*     @param x 第一个数
+*     @param y 第二个数
+*     @return 最小公倍数
+*/
+int ALG_Lcm(int x, int y)
+{
+    int gcd = ALG_Gcd(x, y);
+    int lcm = x / gcd * y;
+    return  lcm;
+}
+
+/** 素数判断
+*
+*     @param u 待判断的非负整数
+*     @return 判断结果
+*/
+bool  ALG_IsPrime(int u)
+{
+    if (u == 0 || u == 1)
+    {
+        return false;
+    }
+    if (u == 2)
+    {
+        return true;
+    }
+    if (u % 2 == 0)
+    {
+        return false ;
+    }
+    for (int i = 3;  i <= sqrt((double)u); i += 2)
+    {
+        if (u % i == 0)
+        {
+            return false;
+        }
+    }
+    return  true;
+}
+
+/** 素数筛法
+*
+*     @param u 待判断的非负整数
+*     @return 判断结果
+*/
+const int MAX_PRIME_SIEVE = 1000;
+bool primeMark[MAX_PRIME_SIEVE];  // true: prime number
+void ALG_SievePrime()
+{
+    memset(primeMark, true, sizeof(primeMark));
+    primeMark[0] = primeMark[1] = false;
+    for (int i = 2; i <= sqrt((double)MAX_PRIME_SIEVE); i++)
+    {
+        if (primeMark[i])
+        {
+            for (int j = i * i; j < MAX_PRIME_SIEVE; j += i)
+            {
+                primeMark[j] = false;
+            }
+        }
+    }
+}
+
+#endif

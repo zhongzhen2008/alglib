@@ -1,0 +1,12 @@
+#include "../include/alg_other_dp.h"
+
+#include <gtest/gtest.h>
+
+TEST(OtherDpTest, ExtendedBottomUpCutRob_Success)
+{
+    int a[11] = {0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+    
+    EXPECT_EQ(30, ALG_ExtendedBottomUpCutRob(a, 10));
+
+    EXPECT_EQ(18, ALG_ExtendedBottomUpCutRob(a, 7));
+}

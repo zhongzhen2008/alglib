@@ -1,0 +1,249 @@
+#include "../include/alg_other_dp.h"
+#include "../include/alg_util.h"
+
+#include <gtest/gtest.h>
+
+TEST(OtherDpTest, ExtendedBottomUpCutRob_01)
+{
+    int a[11] = {0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+    
+    EXPECT_EQ(30, ALG_ExtendedBottomUpCutRob(a, 10));
+
+    EXPECT_EQ(18, ALG_ExtendedBottomUpCutRob(a, 7));
+}
+
+TEST(OtherDpTest, MatrixChain_01)
+{
+    int a[] = {30, 35, 15, 5, 10, 20, 25};
+    int **m, **s;
+    ALG_Make2DArray(m, 7, 7);
+    ALG_Make2DArray(s, 7, 7);
+
+    EXPECT_EQ(15125, ALG_MatrixChain(a, 6, m, s));
+
+    //ALG_Print2DArray(m, 7, 7);
+    //ALG_Print2DArray(s, 7, 7);
+
+    cout << "《算法导论》15.2 矩阵链乘法； 王晓东 3.1 矩阵连乘: " << endl;
+    ALG_MatrixTraceback(1, 6, s);
+    cout << endl;
+
+    ALG_Delete2DArray(m, 7);
+    ALG_Delete2DArray(s, 7);
+}
+
+TEST(OtherDpTest, WIS_01)
+{
+    STU_INTERVAL item1;
+    item1.id = 101;
+    item1.start = 0;
+    item1.finish = 2;
+    item1.weight = 1;
+
+    STU_INTERVAL item2;
+    item2.id = 102;
+    item2.start = 1;
+    item2.finish = 4;
+    item2.weight = 3;
+
+    STU_INTERVAL item3;
+    item3.id = 103;
+    item3.start = 3;
+    item3.finish = 5;
+    item3.weight = 1;
+
+    vector<STU_INTERVAL> vec1;
+    vec1.push_back(item3);
+    vec1.push_back(item2);
+    vec1.push_back(item1);
+
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);    
+    EXPECT_EQ(3, wis);
+    
+    EXPECT_EQ(102, result[0]);
+}
+
+TEST(OtherDpTest, WIS_02)
+{
+    STU_INTERVAL item1;
+    item1.id = 101;
+    item1.start = 0;
+    item1.finish = 3;
+    item1.weight = 2;
+
+    STU_INTERVAL item2;
+    item2.id = 102;
+    item2.start = 1;
+    item2.finish = 5;
+    item2.weight = 4;
+
+    STU_INTERVAL item3;
+    item3.id = 103;
+    item3.start = 4;
+    item3.finish = 6;
+    item3.weight = 4;
+
+    STU_INTERVAL item4;
+    item4.id = 104;
+    item4.start = 2;
+    item4.finish = 9;
+    item4.weight = 7;
+
+    STU_INTERVAL item5;
+    item5.id = 105;
+    item5.start = 7;
+    item5.finish = 10;
+    item5.weight = 2;
+
+    STU_INTERVAL item6;
+    item6.id = 106;
+    item6.start = 8;
+    item6.finish = 11;
+    item6.weight = 1;
+
+    vector<STU_INTERVAL> vec1;
+    vec1.push_back(item3);
+    vec1.push_back(item2);
+    vec1.push_back(item1);
+    vec1.push_back(item6);
+    vec1.push_back(item5);
+    vec1.push_back(item4);
+
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);
+    EXPECT_EQ(8, wis);
+    
+    EXPECT_EQ(101, result[0]);
+    EXPECT_EQ(103, result[1]);
+    EXPECT_EQ(105, result[2]);
+}
+
+TEST(OtherDpTest, WIS_03)
+{
+    STU_INTERVAL item1;
+    item1.id = 101;
+    item1.start = 0;
+    item1.finish = 2;
+    item1.weight = 1;
+
+    STU_INTERVAL item2;
+    item2.id = 102;
+    item2.start = 1;
+    item2.finish = 4;
+    item2.weight = 3;
+
+    STU_INTERVAL item3;
+    item3.id = 103;
+    item3.start = 3;
+    item3.finish = 5;
+    item3.weight = 2;
+
+    vector<STU_INTERVAL> vec1;
+    vec1.push_back(item3);
+    vec1.push_back(item1);
+    vec1.push_back(item2);
+
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);    
+    EXPECT_EQ(3, wis);
+
+    EXPECT_EQ(102, result[0]);
+
+    vector<vector<int>> resultAll;
+    ALG_WIS_All(vec1, resultAll);
+    EXPECT_EQ(2, resultAll.size());
+    EXPECT_EQ(101, resultAll[0][0]);
+    EXPECT_EQ(103, resultAll[0][1]);
+    EXPECT_EQ(102, resultAll[1][0]);
+}
+
+TEST(OtherDpTest, WIS_04)
+{
+    STU_INTERVAL item1;
+    item1.id = 101;
+    item1.start = 0;
+    item1.finish = 2;
+    item1.weight = 1;
+
+    vector<STU_INTERVAL> vec1;
+    vec1.push_back(item1);
+
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);    
+    EXPECT_EQ(1, wis);
+
+    EXPECT_EQ(101, result[0]);
+}
+
+TEST(OtherDpTest, WIS_05)
+{
+    vector<STU_INTERVAL> vec1;
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);    
+    EXPECT_EQ(0, wis);
+}
+
+TEST(OtherDpTest, WIS_06)
+{
+    STU_INTERVAL item1;
+    item1.id = 101;
+    item1.start = 3;
+    item1.finish = 4;
+    item1.weight = 10;
+
+    STU_INTERVAL item2;
+    item2.id = 102;
+    item2.start = 2;
+    item2.finish = 3;
+    item2.weight = 30;
+
+    STU_INTERVAL item3;
+    item3.id = 103;
+    item3.start = 5;
+    item3.finish = 7;
+    item3.weight = 20;
+
+    STU_INTERVAL item4;
+    item4.id = 104;
+    item4.start = 3;
+    item4.finish = 6;
+    item4.weight = 30;
+
+    STU_INTERVAL item5;
+    item5.id = 105;
+    item5.start = 2;
+    item5.finish = 7;
+    item5.weight = 60;
+
+    STU_INTERVAL item6;
+    item6.id = 106;
+    item6.start = 2;
+    item6.finish = 3;
+    item6.weight = 30;
+
+    vector<STU_INTERVAL> vec1;
+    vec1.push_back(item1);
+    vec1.push_back(item2);
+    vec1.push_back(item3);
+    vec1.push_back(item4);
+    vec1.push_back(item5);
+    vec1.push_back(item6);
+
+    vector<int> result;
+
+    int wis = ALG_WIS(vec1, result);
+    EXPECT_EQ(60, wis);
+
+    vector<vector<int>> resultAll;
+    ALG_WIS_All(vec1, resultAll);
+    EXPECT_EQ(5, resultAll.size());
+    EXPECT_EQ(102, resultAll[0][0]);
+    EXPECT_EQ(101, resultAll[0][1]);
+    EXPECT_EQ(103, resultAll[0][2]);
+}

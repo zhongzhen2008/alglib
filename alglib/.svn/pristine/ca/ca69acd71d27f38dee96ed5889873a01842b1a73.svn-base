@@ -1,0 +1,25 @@
+#ifndef ALG_MATH_H_
+#define ALG_MATH_H_
+
+/**    
+*   求排列数 P(n,m) = n!/(n-m)!
+*/
+unsigned int ALG_PermutationCalc(unsigned int n, unsigned int m);
+
+/**    
+*   求组合数 C(n,m) = n!/m!/(n-m)!
+*/
+unsigned int ALG_CombinationCalc(unsigned int n, unsigned int m);
+
+/**    
+*   输入n，输出[1..n] 的全排列，以及输出总数
+*/
+unsigned int ALG_Permutation(unsigned int n);   
+
+/**    
+*   从[1..n] 个数中选m 个的组合，以及输出总数
+*/
+unsigned int ALG_Combination(unsigned int n, unsigned int m);
+
+
+#endif

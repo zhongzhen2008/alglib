@@ -1,0 +1,51 @@
+﻿生成启动时间为 2015/8/16 18:19:13。
+     1>项目“D:\worktemp\alg\alglib\alglib\alglib.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\Microsoft\Visual Studio 14.0\VC\bin\CL.exe /c /I"..\..\gtest-1.6.0\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt gtest\test_graph_bipartite.cpp gtest\test_knapsack.cpp gtest\test_math.cpp gtest\test_other_dp.cpp gtest\test_search.cpp gtest\test_sequence.cpp gtest\test_string.cpp main.cpp
+         main.cpp
+         test_string.cpp
+         test_sequence.cpp
+     1>d:\worktemp\alg\alglib\alglib\include\alg_sequence.h(246): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+         test_search.cpp
+         test_other_dp.cpp
+         test_math.cpp
+         test_knapsack.cpp
+         test_graph_bipartite.cpp
+         正在生成代码...
+       Link:
+         D:\Microsoft\Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\worktemp\alg\alglib\Debug\alglib.exe" /INCREMENTAL /NOLOGO "..\..\gtest-1.6.0\msvc\gtest\Debug\gtestd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\worktemp\alg\alglib\Debug\alglib.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\worktemp\alg\alglib\Debug\alglib.lib" /MACHINE:X86 /SAFESEH Debug\test_graph_bipartite.obj
+         Debug\test_knapsack.obj
+         Debug\test_math.obj
+         Debug\test_other_dp.obj
+         Debug\test_search.obj
+         Debug\test_sequence.obj
+         Debug\test_string.obj
+         Debug\main.obj
+     1>test_graph_bipartite.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "struct std::_Smanip<int> __cdecl std::setprecision(int)" (?setprecision@std@@YA?AU?$_Smanip@H@1@H@Z)，该符号在函数 "public: __thiscall testing::Message::Message(void)" (??0Message@testing@@QAE@XZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 __vsnprintf，该符号在函数 "public: static class testing::internal::String __cdecl testing::internal::String::Format(char const *,...)" (?Format@String@internal@testing@@SA?AV123@PBDZZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 ___iob_func，该符号在函数 "void __cdecl testing::internal::ReportInvalidTestCaseType(char const *,char const *,int)" (?ReportInvalidTestCaseType@internal@testing@@YAXPBD0H@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 _vprintf，该符号在函数 "void __cdecl testing::internal::ColoredPrintf(enum testing::internal::GTestColor,char const *,...)" (?ColoredPrintf@internal@testing@@YAXW4GTestColor@12@PBDZZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 _printf，该符号在函数 "void __cdecl testing::internal::PrintFullTestCommentIfPresent(class testing::TestInfo const &)" (?PrintFullTestCommentIfPresent@internal@testing@@YAXABVTestInfo@2@@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "void * __cdecl operator new[](unsigned int,struct std::_DebugHeapTag_t const &,char *,int)" (??_U@YAPAXIABU_DebugHeapTag_t@std@@PADH@Z)，该符号在函数 "public: char * __cdecl std::_DebugHeapAllocator<char>::allocate(unsigned int,void const *)" (?allocate@?$_DebugHeapAllocator@D@std@@QAAPADIPBX@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "struct std::_DebugHeapTag_t const & __cdecl std::_DebugHeapTag_func(void)" (?_DebugHeapTag_func@std@@YAABU_DebugHeapTag_t@1@XZ)，该符号在函数 "public: char * __cdecl std::_DebugHeapAllocator<char>::allocate(unsigned int,void const *)" (?allocate@?$_DebugHeapAllocator@D@std@@QAAPADIPBX@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall std::exception::exception(char const * const &)" (??0exception@std@@QAE@ABQBD@Z)，该符号在函数 "public: __thiscall std::bad_alloc::bad_alloc(char const *)" (??0bad_alloc@std@@QAE@PBD@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall std::_Mutex::~_Mutex(void)" (??1_Mutex@std@@QAE@XZ)，该符号在函数 "public: virtual __thiscall std::basic_streambuf<char,struct std::char_traits<char> >::~basic_streambuf<char,struct std::char_traits<char> >(void)" (??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAE@XZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2001: 无法解析的外部符号 "long const std::_BADOFF" (?_BADOFF@std@@3JB)
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: static void __cdecl std::_String_base::_Xlen(void)" (?_Xlen@_String_base@std@@SAXXZ)，该符号在函数 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __thiscall std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::append(char const *,unsigned int)" (?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: static void __cdecl std::_String_base::_Xran(void)" (?_Xran@_String_base@std@@SAXXZ)，该符号在函数 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __thiscall std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >::assign(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned int,unsigned int)" (?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "void * __cdecl operator new(unsigned int,struct std::_DebugHeapTag_t const &,char *,int)" (??2@YAPAXIABU_DebugHeapTag_t@std@@PADH@Z)，该符号在函数 "protected: __thiscall std::basic_streambuf<char,struct std::char_traits<char> >::basic_streambuf<char,struct std::char_traits<char> >(void)" (??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@XZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall std::_Mutex::_Mutex(void)" (??0_Mutex@std@@QAE@XZ)，该符号在函数 "protected: __thiscall std::basic_streambuf<char,struct std::char_traits<char> >::basic_streambuf<char,struct std::char_traits<char> >(void)" (??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@XZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "private: static class std::locale::_Locimp * __cdecl std::locale::_Init(void)" (?_Init@locale@std@@CAPAV_Locimp@12@XZ)，该符号在函数 "public: __thiscall std::locale::locale(void)" (??0locale@std@@QAE@XZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: void __thiscall std::_Mutex::_Lock(void)" (?_Lock@_Mutex@std@@QAEXXZ)，该符号在函数 "public: void __thiscall std::basic_streambuf<char,struct std::char_traits<char> >::_Lock(void)" (?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEXXZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: void __thiscall std::_Mutex::_Unlock(void)" (?_Unlock@_Mutex@std@@QAEXXZ)，该符号在函数 "public: void __thiscall std::basic_streambuf<char,struct std::char_traits<char> >::_Unlock(void)" (?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEXXZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall std::bad_cast::bad_cast(char const *)" (??0bad_cast@std@@QAE@PBD@Z)，该符号在函数 "class std::ctype<char> const & __cdecl std::use_facet<class std::ctype<char> >(class std::locale const &)" (??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "private: static void __cdecl std::locale::facet::facet_Register(class std::locale::facet *)" (?facet_Register@facet@locale@std@@CAXPAV123@@Z)，该符号在函数 "public: void __thiscall std::locale::facet::_Register(void)" (?_Register@facet@locale@std@@QAEXXZ) 中被引用
+     1>gtestd.lib(gtest-all.obj) : error LNK2019: 无法解析的外部符号 "public: static void __cdecl std::_Locinfo::_Locinfo_ctor(class std::_Locinfo *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?_Locinfo_ctor@_Locinfo@std@@SAXPAV12@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z)，该符号在函数 "public: __thiscall std::_Locinfo::_Locinfo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0_Locinfo@std@@QAE@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z) 中被引用
+     1>D:\worktemp\alg\alglib\Debug\alglib.exe : fatal error LNK1120: 20 个无法解析的外部命令
+     1>已完成生成项目“D:\worktemp\alg\alglib\alglib\alglib.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:05.54

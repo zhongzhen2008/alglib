@@ -1,0 +1,13 @@
+#include "../include/alg_sequence.h"
+
+#include <gtest/gtest.h>
+
+TEST(SequenceTest, LCS_01)
+{
+    string x = "abcbdab";
+    string y = "bdcaba";
+    string ret;
+    EXPECT_EQ(4, ALG_LCSCalc(x, y, ret));
+    EXPECT_STREQ("bcba", ret.c_str());
+}
+

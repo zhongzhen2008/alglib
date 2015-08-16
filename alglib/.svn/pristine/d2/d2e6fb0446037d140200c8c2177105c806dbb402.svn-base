@@ -1,0 +1,98 @@
+#include "../include/alg_math.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+
+unsigned int ALG_PermutationCalc(unsigned int n, unsigned int m)
+{
+    unsigned int i, Ans;
+    Ans = 1;
+    for (i = 1; i <= m; i++)
+    {
+        Ans = Ans * n;
+        n--;
+    }
+    return Ans;
+}
+
+
+unsigned int ALG_CombinationCalc(unsigned int n, unsigned int m)
+{
+    unsigned int i, Ans;
+    Ans = 1;
+    for (i = 1; i <= m; i++)
+    {
+        Ans = Ans * n;
+        n--;
+    }
+    for (i = 2; i <= m; i++)
+    {
+        Ans = Ans / i;
+    }
+    return Ans;
+}
+
+unsigned int ALG_Permutation(unsigned int n)
+{
+    vector <unsigned int> vec1;
+    unsigned int result = 0;
+    for (unsigned int i = 1; i <= n; i++)
+    {
+        vec1.push_back(i);
+    }
+
+    bool hasNext = true;
+    while (hasNext)
+    {
+        result++;
+        for (unsigned int i = 0; i < n; i++)
+        {
+            cout << vec1[i] << " ";
+        }
+        cout << endl;
+
+        hasNext = next_permutation(vec1.begin(), vec1.end());
+    }
+
+    return result;
+}
+
+unsigned int ALG_Combination(unsigned int n, unsigned int m)
+{
+    unsigned int result = 0;
+
+    unsigned int *a = new unsigned int[n + 1];
+    unsigned int i, j;
+    a[0] = 1;
+    for (i = 1; i <= m; i++)
+    {
+        a[i] = i;
+    }
+    while (a[0] == 1)
+    {
+        result++;
+        for (i = 1; i <= m; i++)
+        {
+            cout << a[i] << ' ';    //输出当前序列
+        }
+        cout << '\n';
+
+        j = m;
+        while (a[j] == n - m + j && j > 0)
+        {
+            j--;
+        }
+        a[j]++;
+        for (i = j + 1; i <= n; i++)
+        {
+            a[i] = a[i - 1] + 1;
+        }
+    }
+
+    delete[] a;
+
+    return result;
+}

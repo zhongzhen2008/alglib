@@ -1,0 +1,12 @@
+#include "../include/alg_string.h"
+
+#include <gtest/gtest.h>
+
+TEST(StringTest, StringSplit_01)
+{
+	string str1 = "This is a test.";
+	vector<string> vecRet = ALG_StringSplit(str1, " ");
+	EXPECT_EQ(4, vecRet.size());
+	EXPECT_STREQ("This", vecRet[0].c_str());
+	EXPECT_STREQ("test.", vecRet[3].c_str());
+}

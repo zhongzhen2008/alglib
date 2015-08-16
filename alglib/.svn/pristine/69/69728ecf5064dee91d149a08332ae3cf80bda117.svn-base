@@ -1,0 +1,40 @@
+#include "include/algmath.h"
+#include "include/knapsack.h"
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    // 数学-排列组合
+    cout << "--------------数学-排列组合---------------------------------------------" << endl;
+    cout << "Permutation(4,2) with ALG_PermutationCalc(4, 2):" << endl;
+    unsigned int count = ALG_PermutationCalc(4, 2);
+    cout << "Total count is " << count << endl << endl;
+
+    cout << "Combination(4,2) with ALG_CombinationCalc(4, 2):" << endl;
+    count = ALG_CombinationCalc(4, 2);
+    cout << "Total count is " << count << endl << endl;
+
+    cout << "Permutations [1,..,4] with ALG_Permutations(4):" << endl;
+    count = ALG_Permutation(4);
+    cout << "Total count is " << count << endl << endl;
+
+    cout << "Combination 2 number from [1,..,4] with ALG_Combination(4, 2):" << endl;
+    count = ALG_Combination(4, 2);
+    cout << "Total count is " << count << endl << endl;
+
+    // 0-1背包
+    cout << "--------------0-1 knapsack背包---------------------------------------------" << endl;
+    int size = 5;
+    int limitWeight = 100;
+    int weight[] = {0, 77, 22, 29, 50, 99};
+    int value[] = {0, 92, 22, 87, 46, 90};
+    int result = ALG_Knapsack_01(size, weight, value, limitWeight);
+    cout << "size = 5, limitWeight = 100" << endl;
+    cout << "weight[] = {0, 77, 22, 29, 50, 99}" << endl;
+    cout << "value[] = {0, 92, 22, 87, 46, 90}" << endl;
+    cout << "result is " << result << endl  << endl;
+
+}

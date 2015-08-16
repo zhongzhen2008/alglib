@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>alglib: D:/worktemp/alg/alglib/alglib/include/alg_string.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">alglib
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">alg_string.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="alg__string_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ALG_STRING_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ALG_STRING_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="alg__string_8h.html#a13848d874ecb35aa903d8c2fbbcce78e">   15</a></span>&#160;vector&lt;string&gt; <a class="code" href="alg__string_8h.html#a13848d874ecb35aa903d8c2fbbcce78e">ALG_StringSplit</a>(<span class="keywordtype">string</span> str, <span class="keywordtype">string</span> pattern)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> pos;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    vector&lt;string&gt; result;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    str += pattern; <span class="comment">//扩展字符串以方便操作</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> size = str.size();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        pos = str.find(pattern, i);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (pos &lt; size)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">string</span> s = str.substr(i, pos - i);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            result.push_back(s);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            i = pos + pattern.size() - 1;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="alg__string_8h.html#aa9edf423b39fd3767ee51da097ff76d7">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="alg__string_8h.html#aa9edf423b39fd3767ee51da097ff76d7">ALG_StringTrimLeft</a>(<span class="keywordtype">string</span>&amp; str, <span class="keywordtype">char</span> ch = <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    string::size_type pos = str.find_first_not_of(ch);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (pos != string::npos)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        str.erase(0, pos);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        str = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="alg__string_8h.html#ad369bad655dc516bc63fce48bfa02e8a">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="alg__string_8h.html#ad369bad655dc516bc63fce48bfa02e8a">ALG_StringTrimRight</a>(<span class="keywordtype">string</span>&amp; str, <span class="keywordtype">char</span> ch = <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    string::size_type pos = str.find_last_not_of(ch);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (pos != string::npos)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        str.erase(pos + 1);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        str = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="alg__string_8h.html#a7bbd1c1d05b02417a84846aa61e51e8f">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="alg__string_8h.html#a7bbd1c1d05b02417a84846aa61e51e8f">ALG_StringTrim</a>(<span class="keywordtype">string</span>&amp; str, <span class="keywordtype">char</span> ch = <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="alg__string_8h.html#aa9edf423b39fd3767ee51da097ff76d7">ALG_StringTrimLeft</a>(str, ch);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="alg__string_8h.html#ad369bad655dc516bc63fce48bfa02e8a">ALG_StringTrimRight</a>(str, ch);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alg__string_8h_html_a7bbd1c1d05b02417a84846aa61e51e8f"><div class="ttname"><a href="alg__string_8h.html#a7bbd1c1d05b02417a84846aa61e51e8f">ALG_StringTrim</a></div><div class="ttdeci">void ALG_StringTrim(string &amp;str, char ch= ' ')</div><div class="ttdef"><b>Definition:</b> alg_string.h:67</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="alg__string_8h_html_ad369bad655dc516bc63fce48bfa02e8a"><div class="ttname"><a href="alg__string_8h.html#ad369bad655dc516bc63fce48bfa02e8a">ALG_StringTrimRight</a></div><div class="ttdeci">void ALG_StringTrimRight(string &amp;str, char ch= ' ')</div><div class="ttdef"><b>Definition:</b> alg_string.h:54</div></div>
+<div class="ttc" id="alg__string_8h_html_aa9edf423b39fd3767ee51da097ff76d7"><div class="ttname"><a href="alg__string_8h.html#aa9edf423b39fd3767ee51da097ff76d7">ALG_StringTrimLeft</a></div><div class="ttdeci">void ALG_StringTrimLeft(string &amp;str, char ch= ' ')</div><div class="ttdef"><b>Definition:</b> alg_string.h:41</div></div>
+<div class="ttc" id="alg__string_8h_html_a13848d874ecb35aa903d8c2fbbcce78e"><div class="ttname"><a href="alg__string_8h.html#a13848d874ecb35aa903d8c2fbbcce78e">ALG_StringSplit</a></div><div class="ttdeci">vector&lt; string &gt; ALG_StringSplit(string str, string pattern)</div><div class="ttdef"><b>Definition:</b> alg_string.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2015年 八月 16日 星期日 17:00:36 , 为 alglib使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

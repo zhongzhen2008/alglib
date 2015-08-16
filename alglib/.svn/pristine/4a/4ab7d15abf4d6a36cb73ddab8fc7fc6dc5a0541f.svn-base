@@ -1,0 +1,204 @@
+#ifndef ALG_SEQUENCE_H_
+#define ALG_SEQUENCE_H_
+
+#include "alg_util.h"
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+/** 最长公共子序列 LCS(Longest Common Subsequence)，元素无需相邻
+*
+*     @param[in] x 第1个序列
+*     @param[in] y 第2个序列
+*     @param[out] result 输出最长公共子序列
+*     @return  最长公共子序列长度
+*     @note  动态规划，递推公式：
+*     @note       c[i][j] = 0                           (i=0, or j=0)
+*     @note       c[i][j] = c[i-1][j-1] + 1             (i,j>0; x[i] = y[j])
+*     @note       c[i][j] = max{c[i][j-1], c[i-1][j]}   (i,j>0; x[i] != y[j])
+*/
+template <class Type>
+int ALG_LCS_vector(vector<Type> x, vector<Type> y, vector<Type> &result)
+{
+    int lenx = x.size();
+    int leny = y.size();
+    if (lenx == 0 || leny == 0)
+    {
+        return 0;
+    }
+
+    result.clear();
+
+    int **c;
+    int **b;
+    ALG_Make2DArray(c, lenx + 1, leny + 1);
+    ALG_Make2DArray(b, lenx + 1, leny + 1);
+
+    // 计算最优值
+    for (int i = 0; i <= lenx; i++)
+    {
+        c[i][0] = 0;
+        b[i][0] = 0;
+    }
+    for (int j = 0; j <= leny; j++)
+    {
+        c[0][j] = 0;
+        b[0][j] = 0;
+    }
+
+    for (int i = 1; i <= lenx; i++)
+    {
+        for (int j = 1; j <= leny; j++)
+        {
+            if (x[i - 1] == y[j - 1])
+            {
+                c[i][j] = c[i - 1][j - 1] + 1;
+                b[i][j] = 1;
+            }
+            else if (c[i - 1][j] >= c[i][j - 1])
+            {
+                c[i][j] = c[i - 1][j];
+                b[i][j] = 2;
+            }
+            else
+            {
+                c[i][j] = c[i][j - 1];
+                b[i][j] = 3;
+            }
+        }
+    }
+
+    int lenRet = c[lenx][leny];
+
+    //ALG_Print2DArray(c, lenx + 1, leny + 1);
+    //ALG_Print2DArray(b, lenx + 1, leny + 1);
+
+    // 构造最优解
+    int tracei = lenx;
+    int tracej = leny;
+    while (tracei != 0 && tracej != 0)
+    {
+        if (b[tracei][tracej] == 1)
+        {
+            result.insert(result.begin(), x[tracei - 1]);
+            tracei -= 1;
+            tracej -= 1;
+        }
+        else if (b[tracei][tracej] == 2)
+        {
+            tracei -= 1;
+        }
+        else
+        {
+            tracej -= 1;
+        }
+    }
+
+    ALG_Delete2DArray(b, lenx + 1);
+    ALG_Delete2DArray(c, lenx + 1);
+
+    return lenRet;
+}
+
+/** 最长公共子序列 LCS(Longest Common Subsequence)，元素无需相邻
+*
+*     @param[in] x 第1个序列
+*     @param[in] y 第2个序列
+*     @param[out] result 输出最长公共子序列
+*     @return  最长公共子序列长度
+*     @note  动态规划，递推公式：
+*     @note       c[i][j] = 0                           (i=0, or j=0)
+*     @note       c[i][j] = c[i-1][j-1] + 1             (i,j>0; x[i] = y[j])
+*     @note       c[i][j] = max{c[i][j-1], c[i-1][j]}   (i,j>0; x[i] != y[j])
+*/
+int ALG_LCS_string(string x, string y, string &result)
+{
+    vector <char> vecx;
+    vector <char> vecy;
+    vector <char> vecRet;
+    vecx.assign(x.begin(), x.end());
+    vecy.assign(y.begin(), y.end());
+
+    int lenRet = ALG_LCS_vector(vecx, vecy, vecRet);
+    result.assign(vecRet.begin(), vecRet.end());
+    return lenRet;
+}
+
+/** 最长公共子串 LCS(Longest Common Substring)，元素必须相邻
+*
+*     @param[in] x 第1个字符串
+*     @param[in] y 第2个字符串
+*     @param[out] result 输出最长公共子串
+*     @return  最长公共子序列长度
+*     @note  动态规划
+*     @note  http://blog.csdn.net/sunmeng_alex/article/details/8102154
+*/
+int ALG_LCSS_string(string x, string y, string &result)
+{
+    int lenx = x.length();  //获取字串的长度
+    int leny = y.length();
+
+    int **c;                //矩阵c记录两串的匹配情况
+    ALG_Make2DArray(c, lenx, leny);
+
+    int start, end, len, i, j; //start表明最长公共子串的起始点，end表明最长公共子串的终止点
+    end = len = 0;          //len表明最长公共子串的长度
+    for (i = 0; i < lenx; i++) //串开始从前向后比较
+    {
+        for (j = 0; j < leny; j++)
+        {
+            if (x[i] == y[j])
+            {
+                if (i == 0 || j == 0)
+                {
+                    c[i][j] = 1;
+                }
+                else
+                {
+                    c[i][j] = c[i - 1][j - 1] + 1;
+                }
+            }
+            else
+            {
+                c[i][j] = 0;
+            }
+            if (c[i][j] > len)
+            {
+                len = c[i][j];
+                end = j;
+            }
+        }
+    }
+
+    ALG_Delete2DArray(c, lenx);
+
+    // 记录最长公共子串
+    start = end - len + 1;
+    result = y.substr(start, len);
+
+    return len;
+}
+
+/** 最长公共子串 LCS(Longest Common Substring)，元素必须相邻
+*
+*     @param[in] x 第1个字符串
+*     @param[in] y 第2个字符串
+*     @param[out] result 输出最长公共子串
+*     @return  最长公共子序列长度
+*     @note  动态规划
+*     @note  http://blog.csdn.net/sunmeng_alex/article/details/8102154
+*/
+int ALG_LCSS_cstr(char *x, char *y, char *result)
+{
+    string sx(x);
+    string sy(y);
+    string sret;
+
+    int len = ALG_LCSS_string(sx, sy, sret);
+    strcpy(result, sret.c_str());
+    return len;
+}
+
+#endif

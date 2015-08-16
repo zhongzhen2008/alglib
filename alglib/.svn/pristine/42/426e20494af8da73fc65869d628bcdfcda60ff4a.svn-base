@@ -1,0 +1,13 @@
+#include "../include/alg_knapsack.h"
+
+#include <gtest/gtest.h>
+
+TEST(KnapsackTest, Knapsack_01_Success)
+{
+    int size = 5;
+    int limitWeight = 100;
+    int weight[] = {0, 77, 22, 29, 50, 99};
+    int value[] = {0, 92, 22, 87, 46, 90};
+
+    EXPECT_EQ(133, ALG_Knapsack_01(size, weight, value, limitWeight));
+}

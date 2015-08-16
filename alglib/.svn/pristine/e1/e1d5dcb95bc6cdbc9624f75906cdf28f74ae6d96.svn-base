@@ -1,0 +1,33 @@
+#include "../include/alg_other_dp.h"
+#include "../include/alg_util.h"
+
+#include <gtest/gtest.h>
+
+TEST(OtherDpTest, ExtendedBottomUpCutRob_01)
+{
+    int a[11] = {0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+    
+    EXPECT_EQ(30, ALG_ExtendedBottomUpCutRob(a, 10));
+
+    EXPECT_EQ(18, ALG_ExtendedBottomUpCutRob(a, 7));
+}
+
+TEST(OtherDpTest, MatrixChain_01)
+{
+    int a[] = {30, 35, 15, 5, 10, 20, 25};
+    int **m, **s;
+    ALG_Make2DArray(m, 7, 7);
+    ALG_Make2DArray(s, 7, 7);
+
+    EXPECT_EQ(15125, ALG_MatrixChain(a, 6, m, s));
+
+    //ALG_Print2DArray(m, 7, 7);
+    //ALG_Print2DArray(s, 7, 7);
+
+    cout << "《算法导论》15.2 矩阵链乘法； 王晓东 3.1 矩阵连乘: " << endl;
+    ALG_MatrixTraceback(1, 6, s);
+    cout << endl;
+
+    ALG_Delete2DArray(m, 7);
+    ALG_Delete2DArray(s, 7);
+}

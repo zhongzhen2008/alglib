@@ -1,0 +1,35 @@
+#ifndef ALG_STRING_H_
+#define ALG_STRING_H_
+
+#include <string>
+#include <vector>
+
+using namespace std;
+
+/** 字符串分割函数
+*
+*     @param str 待处理字符串
+*     @param pattern 分割元素
+*     @return    分割后的vector字符串数组
+*/
+vector<string> ALG_StringSplit(string str, string pattern)
+{
+    int pos;
+    vector<string> result;
+    str += pattern; //扩展字符串以方便操作
+    int size = str.size();
+
+    for (int i = 0; i < size; i++)
+    {
+        pos = str.find(pattern, i);
+        if (pos < size)
+        {
+            string s = str.substr(i, pos - i);
+            result.push_back(s);
+            i = pos + pattern.size() - 1;
+        }
+    }
+    return result;
+}
+
+#endif
