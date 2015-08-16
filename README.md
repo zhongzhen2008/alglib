@@ -1,49 +1,102 @@
 # alglib
-algorithm lib by c/c++
+algorithm lib by c/c++<br />
+<br />
+å„ç§ç®—æ³•ç«èµ›ã€OJ ä¸­å¯ä»¥ä½¿ç”¨ï¼Œå‡½æ•°æ¾è€¦åˆã€æ‰€æœ‰å‡½æ•°å¯ä»¥ç‹¬ç«‹ä½¿ç”¨ã€ä¹Ÿå¯ä»¥å…¨éƒ¨æ‹¿å»includeä½¿ç”¨ï¼›<br />
 
-¸÷ÖÖËã·¨¾ºÈü¡¢OJ ÖĞ¿ÉÒÔÊ¹ÓÃ£¬º¯ÊıËÉñîºÏ¡¢ËùÓĞº¯Êı¿ÉÒÔ¶ÀÁ¢Ê¹ÓÃ£»
-Ìá¹©Google Test ÓÃÀı£¬±ãÓÚÀí½â¸÷º¯ÊıÈçºÎÊ¹ÓÃ£»
+<p>
+	æä¾›Google Test &nbsp;æµ‹è¯•ç”¨ä¾‹ï¼Œä¾¿äºç†è§£å„å‡½æ•°å¦‚ä½•ä½¿ç”¨ï¼›
+</p>
+æ ¸å¿ƒä»£ç ç›®å½•åœ¨ï¼š\alglib\alglib\include<br />
+<br />
+alg_string.h<br />
+<span style="white-space:pre">	</span>ALG_StringSplit <span style="white-space:pre">			</span>å­—ç¬¦ä¸²åˆ†å‰²å‡½æ•°<br />
+<span style="white-space:pre">	</span>ALG_StringTrim <span style="white-space:pre">			</span>å­—ç¬¦ä¸²Trim<br />
+<span style="white-space:pre">	</span>ALG_StringTrimLeft<span style="white-space:pre">		</span>å­—ç¬¦ä¸²Trim<br />
 
-alg_string.h
-	ALG_StringSplit 		×Ö·û´®·Ö¸îº¯Êı
-	ALG_StringTrim 			×Ö·û´®Trim
-	ALG_StringTrimLeft	×Ö·û´®Trim
-	ALG_StringTrimRight	×Ö·û´®Trim
-alg_util.h
-	ALG_Make2DArray			¶¯Ì¬´´½¨¶şÎ¬Êı×é
-	ALG_Print2DArray		´òÓ¡¶şÎ¬Êı×é
-	ALG_Delete2DArray		ÊÍ·ÅÖ®Ç°¶¯Ì¬´´½¨µÄ¶şÎ¬Êı×é
-alg_sequence.h
-	ALG_LCS_vector			×î³¤¹«¹²×ÓĞòÁĞ LCS(Longest Common Subsequence)£¬ÔªËØÎŞĞèÏàÁÚ£¬Ê±¼ä¸´ÔÓ¶ÈO(m*n)
-	ALG_LCS_string			×î³¤¹«¹²×ÓĞòÁĞ LCS(Longest Common Subsequence)£¬ÔªËØÎŞĞèÏàÁÚ
-	ALG_LNDS_vector			×î³¤·Ç¼õ×ÓĞòÁĞ£¬ÔªËØÎŞĞèÏàÁÚ£¬Ê±¼ä¸´ÔÓ¶ÈO(n*n)
-	ALG_LIS_vector			×î³¤µİÔö×ÓĞòÁĞ£¬Longest Increase Subsequence£¬ÔªËØÎŞĞèÏàÁÚ£¬Ê±¼ä¸´ÔÓ¶ÈO(n*n)
-	ALG_LCSS_string			×î³¤¹«¹²×Ó´® LCS(Longest Common Substring)£¬ÔªËØ±ØĞëÏàÁÚ£¬Ê±¼ä¸´ÔÓ¶ÈO(n*n)
-	ALG_LCSS_cstr				×î³¤¹«¹²×Ó´® LCS(Longest Common Substring)£¬ÔªËØ±ØĞëÏàÁÚ£¬Ê±¼ä¸´ÔÓ¶ÈO(n*n)
-	ALG_MaxSub_vector		×î´ó×ÓÊı×é maximum subarray£¬ÒªÕÒ³öÓÉÊı×é³ÉµÄÒ»Î¬Êı×éÖĞºÍ×î´óµÄÁ¬Ğø×ÓÊı×é£¬Ê±¼ä¸´ÔÓ¶ÈO(n)
-	ALG_MaxSub_array		×î´ó×ÓÊı×é maximum subarray£¬ÒªÕÒ³öÓÉÊı×é³ÉµÄÒ»Î¬Êı×éÖĞºÍ×î´óµÄÁ¬Ğø×ÓÊı×é£¬Ê±¼ä¸´ÔÓ¶ÈO(n)
-	ALG_MaxSubMatrix_array	×î´ó×Ó¾ØÕó£¬Ê±¼ä¸´ÔÓ¶ÈO(m*m*n)
-	ALG_EditDistance		×Ö·û´®±à¼­¾àÀë£¬×Ö·û´®ÏàËÆ¶È
-alg_search.h
-	ALG_BinarySearch		²éÕÒÖ¸¶¨ÔªËØÔÚÊı×éÖĞµÄÎ»ÖÃ£¬¶ş·Ö·¨²éÕÒËã·¨£¬Ê±¼ä¸´ÔÓ¶È O(logN)
-alg_math.h
-	ALG_PermutationCalc	ÇóÅÅÁĞÊı P(n,m) = n!/(n-m)!
-	ALG_CombinationCalc	Çó×éºÏÊı C(n,m) = n!/m!/(n-m)!
-	ALG_Permutation			ÊäÈën£¬Êä³ö[1..n] µÄÈ«ÅÅÁĞ£¬ÒÔ¼°Êä³ö×ÜÊı
-	ALG_Combination			´Ó[1..n] ¸öÊıÖĞÑ¡m ¸öµÄ×éºÏ£¬ÒÔ¼°Êä³ö×ÜÊı
-	ALG_Gcd	×î´ó¹«Ô¼Êı
-	ALG_Lcm	×îĞ¡¹«±¶Êı
-	ALG_ExtendedEuclid	À©Õ¹Å·¼¸ÀïµÂËã·¨
-	ALG_IsPrime	ËØÊıÅĞ¶Ï
-	ALG_SievePrime	ËØÊıÉ¸·¨
-	ALG_Euler	Å·À­º¯Êı
-	ALG_ChangeRadix	ÕûÊı½øÎ»ÖÆ×ª»»
-alg_knapsack.h
-	ALG_Knapsack_01	0-1±³°üÎÊÌâ
-alg_graph_bipartite.h
-	ALG_BipartiteMatch	¶ş·ÖÍ¼µÄ×î´óÆ¥Åä¡ªĞÙÑÀÀûËã·¨
-alg_other_dp.h
-	ALG_ExtendedBottomUpCutRob	¡¶Ëã·¨µ¼ÂÛ¡·15.1 ¸ÖÌõÇĞ¸î
-	ALG_MatrixChain	¡¶Ëã·¨µ¼ÂÛ¡·15.2 ¾ØÕóÁ´³Ë·¨£» ÍõÏş¶« 3.1 ¾ØÕóÁ¬³Ë
-	ALG_WIS	Weighted Interval Scheduling£¬¡¶Algorithm Design¡·Kleinberg 6.1
-	ALG_WIS_All	Weighted Interval Scheduling£¬¡¶Algorithm Design¡·Kleinberg 6.1
+<p>
+	<span style="white-space:pre">	</span>ALG_StringTrimRight<span style="white-space:pre">		</span>å­—ç¬¦ä¸²Trim
+</p>
+<p>
+	<br />
+	
+</p>
+alg_util.h<br />
+<span style="white-space:pre">	</span>ALG_Make2DArray<span style="white-space:pre">		</span>åŠ¨æ€åˆ›å»ºäºŒç»´æ•°ç»„<br />
+<span style="white-space:pre">	</span>ALG_Print2DArray<span style="white-space:pre">		</span>æ‰“å°äºŒç»´æ•°ç»„<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_Delete2DArray<span style="white-space:pre">		</span>é‡Šæ”¾ä¹‹å‰åŠ¨æ€åˆ›å»ºçš„äºŒç»´æ•°ç»„
+</p>
+<p>
+	<br />
+	
+</p>
+alg_sequence.h<br />
+<span style="white-space:pre">	</span>ALG_LCS_vector<span style="white-space:pre">			</span>æœ€é•¿å…¬å…±å­åºåˆ— LCS(Longest Common Subsequence)ï¼Œå…ƒç´ æ— éœ€ç›¸é‚»ï¼Œæ—¶é—´å¤æ‚åº¦O(m*n)<br />
+<span style="white-space:pre">	</span>ALG_LCS_string<span style="white-space:pre">			</span>æœ€é•¿å…¬å…±å­åºåˆ— LCS(Longest Common Subsequence)ï¼Œå…ƒç´ æ— éœ€ç›¸é‚»<br />
+<span style="white-space:pre">	</span>ALG_LNDS_vector<span style="white-space:pre">		</span>æœ€é•¿éå‡å­åºåˆ—ï¼Œå…ƒç´ æ— éœ€ç›¸é‚»ï¼Œæ—¶é—´å¤æ‚åº¦O(n*n)<br />
+<span style="white-space:pre">	</span>ALG_LIS_vector<span style="white-space:pre">			</span>æœ€é•¿é€’å¢å­åºåˆ—ï¼ŒLongest Increase Subsequenceï¼Œå…ƒç´ æ— éœ€ç›¸é‚»ï¼Œæ—¶é—´å¤æ‚åº¦O(n*n)<br />
+<span style="white-space:pre">	</span>ALG_LCSS_string<span style="white-space:pre">		</span>æœ€é•¿å…¬å…±å­ä¸² LCS(Longest Common Substring)ï¼Œå…ƒç´ å¿…é¡»ç›¸é‚»ï¼Œæ—¶é—´å¤æ‚åº¦O(n*n)<br />
+<span style="white-space:pre">	</span>ALG_LCSS_cstr<span style="white-space:pre">			</span>æœ€é•¿å…¬å…±å­ä¸² LCS(Longest Common Substring)ï¼Œå…ƒç´ å¿…é¡»ç›¸é‚»ï¼Œæ—¶é—´å¤æ‚åº¦O(n*n)<br />
+<span style="white-space:pre">	</span>ALG_MaxSub_vector<span style="white-space:pre">		</span>æœ€å¤§å­æ•°ç»„ maximum subarrayï¼Œè¦æ‰¾å‡ºç”±æ•°ç»„æˆçš„ä¸€ç»´æ•°ç»„ä¸­å’Œæœ€å¤§çš„è¿ç»­å­æ•°ç»„ï¼Œæ—¶é—´å¤æ‚åº¦O(n)<br />
+<span style="white-space:pre">	</span>ALG_MaxSub_array<span style="white-space:pre">		</span>æœ€å¤§å­æ•°ç»„ maximum subarrayï¼Œè¦æ‰¾å‡ºç”±æ•°ç»„æˆçš„ä¸€ç»´æ•°ç»„ä¸­å’Œæœ€å¤§çš„è¿ç»­å­æ•°ç»„ï¼Œæ—¶é—´å¤æ‚åº¦O(n)<br />
+<span style="white-space:pre">	</span>ALG_MaxSubMatrix_array<span style="white-space:pre">	</span>æœ€å¤§å­çŸ©é˜µï¼Œæ—¶é—´å¤æ‚åº¦O(m*m*n)<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_EditDistance<span style="white-space:pre">		</span>å­—ç¬¦ä¸²ç¼–è¾‘è·ç¦»ï¼Œå­—ç¬¦ä¸²ç›¸ä¼¼åº¦
+</p>
+<p>
+	<br />
+	
+</p>
+alg_search.h<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_BinarySearch<span style="white-space:pre">		</span>æŸ¥æ‰¾æŒ‡å®šå…ƒç´ åœ¨æ•°ç»„ä¸­çš„ä½ç½®ï¼ŒäºŒåˆ†æ³•æŸ¥æ‰¾ç®—æ³•ï¼Œæ—¶é—´å¤æ‚åº¦ O(logN)
+</p>
+<p>
+	<br />
+	
+</p>
+alg_math.h<br />
+<span style="white-space:pre">	</span>ALG_PermutationCalc<span style="white-space:pre">	</span>æ±‚æ’åˆ—æ•° P(n,m) = n!/(n-m)!<br />
+<span style="white-space:pre">	</span>ALG_CombinationCalc<span style="white-space:pre">	</span>æ±‚ç»„åˆæ•° C(n,m) = n!/m!/(n-m)!<br />
+<span style="white-space:pre">	</span>ALG_Permutation<span style="white-space:pre">		</span>è¾“å…¥nï¼Œè¾“å‡º[1..n] çš„å…¨æ’åˆ—ï¼Œä»¥åŠè¾“å‡ºæ€»æ•°<br />
+<span style="white-space:pre">	</span>ALG_Combination<span style="white-space:pre">		</span>ä»[1..n] ä¸ªæ•°ä¸­é€‰m ä¸ªçš„ç»„åˆï¼Œä»¥åŠè¾“å‡ºæ€»æ•°<br />
+<span style="white-space:pre">	</span>ALG_Gcd<span style="white-space:pre">				</span>æœ€å¤§å…¬çº¦æ•°<br />
+<span style="white-space:pre">	</span>ALG_Lcm<span style="white-space:pre">				</span>æœ€å°å…¬å€æ•°<br />
+<span style="white-space:pre">	</span>ALG_ExtendedEuclid<span style="white-space:pre">		</span>æ‰©å±•æ¬§å‡ é‡Œå¾·ç®—æ³•<br />
+<span style="white-space:pre">	</span>ALG_IsPrime<span style="white-space:pre">			</span>ç´ æ•°åˆ¤æ–­<br />
+<span style="white-space:pre">	</span>ALG_SievePrime<span style="white-space:pre">			</span>ç´ æ•°ç­›æ³•<br />
+<span style="white-space:pre">	</span>ALG_Euler<span style="white-space:pre">				</span>æ¬§æ‹‰å‡½æ•°<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_ChangeRadix<span style="white-space:pre">		</span>æ•´æ•°è¿›ä½åˆ¶è½¬æ¢
+</p>
+<p>
+	<br />
+	
+</p>
+alg_knapsack.h<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_Knapsack_01<span style="white-space:pre">		</span>0-1èƒŒåŒ…é—®é¢˜
+</p>
+<p>
+	<br />
+	
+</p>
+alg_graph_bipartite.h<br />
+
+<p>
+	<span style="white-space:pre">	</span>ALG_BipartiteMatch<span style="white-space:pre">		</span>äºŒåˆ†å›¾çš„æœ€å¤§åŒ¹é…â€”åŒˆç‰™åˆ©ç®—æ³•
+</p>
+<p>
+	<br />
+	
+</p>
+alg_other_dp.h<br />
+<span style="white-space:pre">	</span>ALG_ExtendedBottomUpCutRob<span style="white-space:pre">	</span>ã€Šç®—æ³•å¯¼è®ºã€‹15.1 é’¢æ¡åˆ‡å‰²<br />
+<span style="white-space:pre">	</span>ALG_MatrixChain<span style="white-space:pre">				</span>ã€Šç®—æ³•å¯¼è®ºã€‹15.2 çŸ©é˜µé“¾ä¹˜æ³•ï¼› ç‹æ™“ä¸œ 3.1 çŸ©é˜µè¿ä¹˜<br />
+<span style="white-space:pre">	</span>ALG_WIS<span style="white-space:pre">				</span>Weighted Interval Schedulingï¼Œã€ŠAlgorithm Designã€‹Kleinberg 6.1<br />
+<span style="white-space:pre">	</span>ALG_WIS_All<span style="white-space:pre">			</span>Weighted Interval Schedulingï¼Œã€ŠAlgorithm Designã€‹Kleinberg 6.1
